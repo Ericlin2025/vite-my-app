@@ -109,7 +109,10 @@ const features = [
 .home-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
-  padding: 2rem;
+  background-image: url(../../assets/img/bg/主页背景.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* padding: 2rem; */
   display: flex;
   flex-direction: column;
 }
