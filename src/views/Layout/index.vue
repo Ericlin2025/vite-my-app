@@ -91,16 +91,16 @@ const features = [
     status: '基本完成',
     badgeColor: '#4caf50'
   },
-  // {
-  //   id: 4,
-  //   title: '汇率转换',
-  //   description: '实时汇率查询与转换',
-  //   icon: '💰',
-  //   detail: '/detail/exchange',
-  //   path: '/exchange',
-  //   status: '规划中',
-  //   badgeColor: '#9e9e9e'
-  // }
+  {
+    id: 4,
+    title: '汇率转换',
+    description: '实时汇率查询与转换',
+    icon: '💰',
+    detail: '/detail/exchange',
+    path: '/exchange',
+    status: '规划中',
+    badgeColor: '#9e9e9e'
+  }
 ]
 </script>
 
