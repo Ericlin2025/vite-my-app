@@ -96,8 +96,8 @@ const features = [
     title: '汇率转换',
     description: '实时汇率查询与转换',
     icon: '💰',
-    detail: '/detail/exchange',
-    path: '/exchange',
+    detail: '/',
+    path: '/',
     status: '规划中',
     badgeColor: '#9e9e9e'
   }
