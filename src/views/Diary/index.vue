@@ -356,7 +356,7 @@ footer{
 
     .empty-state {
       text-align: center;
-      color: #94a3b8;
+      color: #45c4ff;
       padding: 40px 0;
       font-size: 0.95rem;
     }
