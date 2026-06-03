@@ -50,7 +50,7 @@ watch(list,(newl)=>{
 </style> -->
 <template>
     
-    
+    <!-- <RouterLink to="/" class="back-link">← 返回功能中心</RouterLink> -->
     <div class="todos">
         <addTodos @addtodo="add"/>
 
@@ -69,7 +69,8 @@ watch(list,(newl)=>{
 .todos{
     // width: 100%;
     // display: flex;
-    background-image: url(../../assets/img/bg/);
+    background-image: url(../../assets/img/bg/主页背景.jpg);
+    background-size: cover;
 }
 .back-link {
     display: inline-block;
@@ -91,7 +92,8 @@ watch(list,(newl)=>{
     // background-color: #7cb0ff;
     display: flex;
     justify-content: space-around;
-    max-width: 1600px;
+    // align-items: center;
+    // max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
     
@@ -101,6 +103,8 @@ watch(list,(newl)=>{
     
     .empty-state {
         text-align: center;
+        width: 300px;
+        height: 400px;
         padding: 60px 20px;
         background: white;
         border-radius: 24px;

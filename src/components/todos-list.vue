@@ -257,7 +257,7 @@ onUnmounted(() => {
             }
             
             .total-count {
-                color: #6b7280;
+                color: #ffae00;
             }
         }
     }

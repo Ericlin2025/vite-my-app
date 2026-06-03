@@ -121,6 +121,16 @@ const add = () =>{
 </template>
 
 <style scoped lang="scss">
+@keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                }
 .back-link {
     display: inline-block;
     margin: 20px 0 0 20px;
@@ -137,11 +147,12 @@ const add = () =>{
 }
 .input {
     max-width: 800px;
-    margin: 0 auto;
+    // margin: 0 auto;
     padding: 30px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eeab0 0%, #764ba2 100%);
     border-radius: 24px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease-out 0.2s both;
     
     h1 {
         text-align: center;

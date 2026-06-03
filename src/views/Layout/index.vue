@@ -104,7 +104,17 @@ const features = [
     path: '/',
     status: '规划中',
     badgeColor: '#9e9e9e'
-  }
+  },
+  {
+  id: 5,
+  title: '健身打卡',
+  description: '记录每日运动，保持连续打卡',
+  icon: '💪',
+  detail: '/detail/fitness',
+  path: '/fitness',
+  status: '开发中',
+  badgeColor: '#ffbd5a'  
+}
 ]
 </script>
 
@@ -122,6 +132,7 @@ h2{
   /* padding: 2rem; */
   display: flex;
   flex-direction: column;
+  /* background-color: #ffbd5a; */
 }
 
 .bg-video {
@@ -149,7 +160,7 @@ h2{
 
 .app-header p {
   font-size: 1.1rem;
-  color: #607d8b;
+  color: #157aff;
 }
 .banner{
   width: 1000px;

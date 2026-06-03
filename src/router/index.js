@@ -9,6 +9,8 @@ import Questions from '@/views/Questions/index.vue'
 import QuestionsDetail from "@/views/Detail/children/questions-detail.vue";
 import Todos from '@/views/Todos/index.vue'
 import TodosDetail from "@/views/Detail/children/todos-detail.vue";
+import Fitness from '@/views/Fitness/index.vue'
+import FitnessDetail from "@/views/Detail/children/fitness-detail.vue";
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes:[
@@ -49,6 +51,10 @@ const router = createRouter({
                 {
                     path:'/detail/todos',
                     component:TodosDetail
+                },
+                {
+                    path:'/detail/fitness',
+                    component:FitnessDetail
                 }
             ]
         },
@@ -59,6 +65,10 @@ const router = createRouter({
         {
             path:'/todos',
             component:Todos
+        },
+        {
+            path:'/fitness',
+            component:Fitness
         }
     ]
 })

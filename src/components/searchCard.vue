@@ -93,7 +93,7 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     transform: translateY(0);
                 }
                 }
-    .history {
+  .history {
   animation: fadeInUp 0.6s ease-out 0.2s both;
   width: 637px;
 
