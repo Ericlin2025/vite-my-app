@@ -81,7 +81,9 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       color: rgb(255, 104, 129);
     }
     p{
-        color: #8397ec;
+        color: #667eea;
+
+
     }
 }
 .header {
@@ -143,8 +145,8 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .subtitle {
-      color: #6b7280;
-      font-size: 14px;
+      color: #5873eb;
+      font-size: 20px;
     }
   }
 </style>
