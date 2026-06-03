@@ -89,6 +89,7 @@ const add = () =>{
 
 <template>
     <div class="input">
+        <RouterLink to="/" class="back-link">← 返回功能中心</RouterLink>
         <h1>📝 待办事项清单</h1>
         
         <div class="form-group">
@@ -120,6 +121,20 @@ const add = () =>{
 </template>
 
 <style scoped lang="scss">
+.back-link {
+    display: inline-block;
+    margin: 20px 0 0 20px;
+    padding: 8px 16px;
+    color: #66e1ea;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+     &:hover {
+        background: rgba(102, 225, 234, 0.4);
+        transform: translateX(-3px);
+    }
+}
 .input {
     max-width: 800px;
     margin: 0 auto;

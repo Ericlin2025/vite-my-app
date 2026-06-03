@@ -1,6 +1,9 @@
 <template>
   <div class="home-container">
     <!-- 顶部 Header -->
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="/video/首页视频背景.mp4" type="video/mp4">
+    </video>
     <header class="app-header">
       <h1>🧩 我的功能中心</h1>
       <p>选择工具，提升效率</p>
@@ -58,6 +61,7 @@
 </template>
 
 <script setup>
+
 // 功能列表数据 —— 你只需要在这里添加新功能即可
 const features = [
   {
@@ -105,11 +109,14 @@ const features = [
 </script>
 
 <style scoped>
+h2{
+  color: #00f7ff;
+}
 /* 整体容器 */
 .home-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
-  background-image: url(../../assets/img/bg/主页背景.jpg);
+  /* background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%); */
+  /* background-image: url(../../assets/img/bg/主页背景.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   /* padding: 2rem; */
@@ -117,6 +124,16 @@ const features = [
   flex-direction: column;
 }
 
+.bg-video {
+ /* background-color: red; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
 /* Header 样式 */
 .app-header {
   text-align: center;
@@ -126,7 +143,7 @@ const features = [
 
 .app-header h1 {
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: #2369ff;
   margin-bottom: 0.5rem;
 }
 
@@ -183,7 +200,7 @@ const features = [
   flex-wrap: wrap;
   /* max-width: 1500px; */
   margin: 0 auto;
-  border-top: 1px solid black;
+  /* border-top: 1px solid black; */
   padding: 20px ;
   width: 100%;
   padding-bottom: 2rem;

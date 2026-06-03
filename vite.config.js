@@ -8,6 +8,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  assetsInclude: ['**/*.mp4'],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

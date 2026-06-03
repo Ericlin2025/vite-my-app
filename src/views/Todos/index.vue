@@ -49,7 +49,7 @@ watch(list,(newl)=>{
 }
 </style> -->
 <template>
-    <RouterLink to="/" class="back-link">← 返回功能中心</RouterLink>
+    
     
     <div class="todos">
         <addTodos @addtodo="add"/>
@@ -66,10 +66,11 @@ watch(list,(newl)=>{
 </template>
 
 <style scoped lang="scss">
-// .todos{
-//     width: 100%;
-//     display: flex;
-// }
+.todos{
+    // width: 100%;
+    // display: flex;
+    background-image: url(../../assets/img/bg/);
+}
 .back-link {
     display: inline-block;
     margin: 20px 0 0 20px;
