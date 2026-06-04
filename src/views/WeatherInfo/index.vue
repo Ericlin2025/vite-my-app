@@ -164,11 +164,13 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   // 主容器
   .container {
-
+    width: 2000px;
     display: flex;
+    // grid-template-columns: repeat(4,1fr);
+    gap:20px;
     // max-width: 600px;
     // width: 1500px;
-    justify-content: space-around;
+    // justify-content: space-around;
     // border: 1px solid black;
     flex-wrap: wrap;
     margin: 0 auto;

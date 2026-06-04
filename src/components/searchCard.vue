@@ -108,7 +108,7 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transition: $transition;
 
     .hd {
-      width: 100%;
+      // width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -239,6 +239,7 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
     .search-section {
+    width: 635px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: $card-border-radius;
     padding: 24px;
