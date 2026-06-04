@@ -106,6 +106,26 @@ const features = [
     badgeColor: '#9e9e9e'
   },
   {
+    id: 4,
+    title: '汇率转换',
+    description: '实时汇率查询与转换',
+    icon: '💰',
+    detail: '/',
+    path: '/',
+    status: '规划中',
+    badgeColor: '#9e9e9e'
+  },
+  {
+    id: 4,
+    title: '汇率转换',
+    description: '实时汇率查询与转换',
+    icon: '💰',
+    detail: '/',
+    path: '/',
+    status: '规划中',
+    badgeColor: '#9e9e9e'
+  },
+  {
   id: 5,
   title: '健身打卡',
   description: '记录每日运动，保持连续打卡',
@@ -202,18 +222,16 @@ h2{
 }
 /* 卡片网格 - 响应式布局 */
 .cards-grid {
-  /* flex: 1;
+ 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem; */
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   /* max-width: 1500px; */
   margin: 0 auto;
   /* border-top: 1px solid black; */
   padding: 20px ;
-  width: 100%;
+  width: 2000px;
+  /* height: 1000px; */
   padding-bottom: 2rem;
 }
 
