@@ -207,12 +207,12 @@ h2{
  
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 50px;
   /* max-width: 1500px; */
   margin: 0 auto;
   /* border-top: 1px solid black; */
   padding: 20px ;
-  width: 1510px;
+  width: 1600px;
   /* height: 1000px; */
   padding-bottom: 2rem;
 }
