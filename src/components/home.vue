@@ -152,9 +152,9 @@ const features = [
     // right: 0;
     // top: 80%;
     .el-carousel__button{
-    width: 20px;
-    height:20px;
-    border-radius: 10px;
+    width: 16px;
+    height:16px;
+    border-radius: 8px;
     background-color: rgb(0, 195, 255);
     }
     &.is-active{

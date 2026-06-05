@@ -35,7 +35,7 @@
 
 <style scoped lang="scss">
 .active{
-    border-bottom: 4px solid rgb(0, 195, 255);
+    border-bottom: 4px solid rgb(99, 215, 250);
 }
 .hd{
     position: fixed;
