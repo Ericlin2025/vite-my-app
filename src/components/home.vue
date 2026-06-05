@@ -127,6 +127,16 @@ const features = [
 </template>
 
 <style scoped lang="scss">
+// @keyframes fadeInUp {
+//                 from {
+//                     opacity: 0;
+//                     transform: translateX(30px);
+//                 }
+//                 to {
+//                     opacity: 1;
+//                     transform: translateX(0);
+//                 }
+//                 }
 .banner{
   width: 100%;
   height: 700px;
@@ -182,6 +192,7 @@ const features = [
     justify-content:center;
     align-items: center;
     box-shadow: 10px 10px 30px black;
+    // animation: fadeInUp 0.6s ease-out 0.2s both;
     
     
 }
