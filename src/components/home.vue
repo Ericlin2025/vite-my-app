@@ -65,7 +65,7 @@ const features = [
 <template>
  <div class="banner">
        
-          <el-carousel trigger="click" height="700px">
+          <el-carousel trigger="click" height="750px">
             <el-carousel-item 
             v-for="item in features" 
             :key="item" 
@@ -136,6 +136,32 @@ const features = [
   .demonstration {
   color: var(--el-text-color-secondary);
   /* background-color: gray; */
+}
+
+//修改其他组件样式要使用深度选择器deep
+
+:deep(.el-carousel__arrow) {
+    background-color: rgb(0, 195, 255);
+}
+:deep(.el-carousel__indicators) {
+        bottom: 20px;  // 调整到底部位置
+        left: 80%;
+    }
+:deep(.el-carousel__indicator) {
+    // position: absolute;
+    // right: 0;
+    // top: 80%;
+    .el-carousel__button{
+    width: 20px;
+    height:20px;
+    border-radius: 10px;
+    background-color: rgb(0, 195, 255);
+    }
+    &.is-active{
+        .el-carousel__button{
+            width: 40px;
+        }
+    }
 }
 .el-carousel__item img{
     width: 100%;

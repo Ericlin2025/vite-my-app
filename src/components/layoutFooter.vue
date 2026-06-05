@@ -11,7 +11,7 @@
   margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.281);
-  color: #94a3b8;
+  color: #ffffff;
   font-size: 0.85rem;
 }
 </style>

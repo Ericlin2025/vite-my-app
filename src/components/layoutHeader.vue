@@ -75,7 +75,7 @@
                 height: 100%;
                 
                 &:hover{
-                    border-bottom: 5px solid rgb(0, 195, 255);
+                    border-bottom: 4px solid rgb(0, 195, 255);
                 }
                 a{
                     display: flex;
