@@ -1,6 +1,7 @@
 <script setup>
 import checkinButton from '@/components/checkinButton.vue';
 import checkinHistory from '@/components/checkinHistory.vue';
+import heatMap from '@/components/heatMap.vue';
 import dayjs  from 'dayjs';
 import {ref,watch} from 'vue'
 const checkList = ref(JSON.parse(localStorage.getItem('checkList')||'[]'))
@@ -23,6 +24,7 @@ watch(checkList,(newlist)=>{
         <h1>健身打卡</h1>
         <checkinButton @checked="addToList"/>
         <checkinHistory :data="checkList"/>
+        <heatMap :data="checkList"/>
     </div>
 
 </template>

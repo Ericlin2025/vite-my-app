@@ -20,7 +20,7 @@ checkStatus()
 let  timer
 timer = setInterval(()=>{
     checkStatus()
-},60000)
+},5000)
 //点击打卡，并记录
 const checked = () =>{
     
