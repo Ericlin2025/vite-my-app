@@ -11,6 +11,9 @@ import Todos from '@/views/Todos/index.vue'
 import TodosDetail from "@/views/Detail/children/todos-detail.vue";
 import Fitness from '@/views/Fitness/index.vue'
 import FitnessDetail from "@/views/Detail/children/fitness-detail.vue";
+import Home from "@/components/home.vue";
+import Feature from "@/components/feature.vue";
+import Progress from "@/components/progress.vue";
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes:[
@@ -18,7 +21,18 @@ const router = createRouter({
             path:'/',
             component:Layout,
             children:[
-                
+                {
+                    path:'',
+                    component:Home
+                },
+                {
+                    path:'/feature',
+                    component:Feature
+                },
+                {
+                    path:'/progress',
+                    component:Progress
+                }
             ]
         },
         

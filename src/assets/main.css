@@ -9,6 +9,9 @@
         li{
             list-style: none;
         }
+        a{
+            color: #000;
+        }
         /* 单伪元素法 */
         .clearfix::after{
             content: "";
