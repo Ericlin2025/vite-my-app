@@ -135,13 +135,13 @@ const add = () =>{
     display: inline-block;
     margin: 20px 0 0 20px;
     padding: 8px 16px;
-    color: #66e1ea;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
     border-radius: 20px;
     transition: all 0.3s ease;
      &:hover {
-        background: rgba(102, 225, 234, 0.4);
+        background: rgba(0, 162, 255, 0.4);
         transform: translateX(-3px);
     }
 }
@@ -149,7 +149,7 @@ const add = () =>{
     max-width: 800px;
     // margin: 0 auto;
     padding: 30px;
-    background: linear-gradient(135deg, #667eeab0 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #66c0eab0 0%, #42f2ffdc 100%);
     border-radius: 24px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 0.6s ease-out 0.2s both;
