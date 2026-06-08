@@ -111,8 +111,8 @@ import { features } from '@/api/features';
             </RouterLink>
             
             <div class="card-footer">
-            <span class="badge" :style="{ backgroundColor: feature.badgeColor }">
-                {{ feature.status }}
+            <span class="badge" :style="{ backgroundColor: feature.completed?'#4caf50':'#9e9e9e' }">
+                {{ feature.completed?'已完成':'开发中' }}
             </span>
             <RouterLink :to="feature.path" class="use-link">
                 去使用
@@ -129,16 +129,7 @@ import { features } from '@/api/features';
 </template>
 
 <style scoped lang="scss">
-// @keyframes fadeInUp {
-//                 from {
-//                     opacity: 0;
-//                     transform: translateX(30px);
-//                 }
-//                 to {
-//                     opacity: 1;
-//                     transform: translateX(0);
-//                 }
-//                 }
+
 .banner{
   width: 100%;
   height: 700px;
@@ -154,6 +145,9 @@ import { features } from '@/api/features';
 
 :deep(.el-carousel__arrow) {
     background-color: rgb(0, 195, 255);
+    width: 45px;
+    height: 45px;
+    
 }
 :deep(.el-carousel__indicators) {
         bottom: 20px;  // 调整到底部位置
@@ -164,9 +158,9 @@ import { features } from '@/api/features';
     // right: 0;
     // top: 80%;
     .el-carousel__button{
-    width: 16px;
-    height:16px;
-    border-radius: 8px;
+    width: 18px;
+    height:18px;
+    border-radius: 9px;
     background-color: rgb(0, 195, 255);
     }
     &.is-active{

@@ -6,7 +6,7 @@ export const features = [
     icon: '☀️',
     detail: '/detail/weather',
     path: '/weather',
-    status: '已完成',
+    // status: '已完成',
     badgeColor: '#4caf50',
     src:'/img/weather.jpg',
     completed:true
@@ -18,7 +18,7 @@ export const features = [
     icon: '🧠',
     detail: '/detail/questions',
     path: '/questions',
-    status: '基本完成',
+    // status: '基本完成',
     badgeColor: '#4caf50',
     src:'/img/question.jpg',
     completed:true
@@ -31,7 +31,7 @@ export const features = [
     icon: '📝',
     detail: '/detail/todos',
     path: '/todos',
-    status: '基本完成',
+    // status: '基本完成',
     badgeColor: '#4caf50',
     src:'/img/todos.jpg',
     completed:true
@@ -43,7 +43,7 @@ export const features = [
     icon: '💰',
     detail: '/',
     path: '/',
-    status: '规划中',
+    // status: '规划中',
     badgeColor: '#9e9e9e',
     src:'/img/money.jpg',
     completed:false
@@ -57,9 +57,9 @@ export const features = [
   icon: '💪',
   detail: '/detail/fitness',
   path: '/fitness',
-  status: '开发中',
-  badgeColor: '#ffbd5a' ,
+  // status: '基本完成',
+  badgeColor: '#4caf50',
   src:'/img/fitness.jpg',
-  completed:false
+  completed:true
 }
 ]

@@ -30,8 +30,8 @@ const uncomplete = features.filter(i=>i.completed===false)
             </RouterLink>
             
             <div class="card-footer">
-            <span class="badge" :style="{ backgroundColor: feature.badgeColor }">
-                {{ feature.status }}
+            <span class="badge" :style="{ backgroundColor: feature.completed?'#4caf50':'#9e9e9e' }">
+                {{ feature.completed?'已完成':'开发中' }}
             </span>
             <RouterLink :to="feature.path" class="use-link">
                 去使用
@@ -64,8 +64,8 @@ const uncomplete = features.filter(i=>i.completed===false)
             </RouterLink>
             
             <div class="card-footer">
-            <span class="badge" :style="{ backgroundColor: feature.badgeColor }">
-                {{ feature.status }}
+            <span class="badge" :style="{ backgroundColor: feature.completed?'#4caf50':'#9e9e9e' }">
+                {{ feature.completed?'已完成':'开发中' }}
             </span>
             <RouterLink :to="feature.path" class="use-link">
                 去使用
