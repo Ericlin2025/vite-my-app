@@ -2,7 +2,7 @@ import { WebSocketServer } from "ws";
 
 //创建websocket服务器，并监听8080端口
 const wss = new WebSocketServer({port:8080})
-console.log('服务器已经启动，地址为：ws://localhost:8080')
+console.log('服务器已经启动')
 
 
 wss.on('connection',(ws)=>{

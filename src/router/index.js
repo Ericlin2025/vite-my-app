@@ -14,6 +14,8 @@ import FitnessDetail from "@/views/Detail/children/fitness-detail.vue";
 import Home from "@/components/home.vue";
 import Feature from "@/components/feature.vue";
 import Progress from "@/components/progress.vue";
+import Chat from '@/views/Chat/index.vue'
+import ChatDetail from "@/views/Detail/children/chat-detail.vue";
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes:[
@@ -69,6 +71,10 @@ const router = createRouter({
                 {
                     path:'/detail/fitness',
                     component:FitnessDetail
+                },
+                {
+                    path:'/detail/chat',
+                    component:ChatDetail
                 }
             ]
         },
@@ -83,6 +89,10 @@ const router = createRouter({
         {
             path:'/fitness',
             component:Fitness
+        },
+        {
+            path:'/chat',
+            component:Chat
         }
     ]
 })
