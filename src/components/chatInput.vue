@@ -57,6 +57,8 @@ const sendMessage = () =>{
     display: flex;
     // flex-direction: column;
     justify-content: center;
+    // gap: 8px;
+    // border: 1px solid rgba(192, 192, 192, 0.795);
     height: 75px;
     width: 100%;
     position: fixed;
@@ -70,6 +72,7 @@ const sendMessage = () =>{
         align-items: center;
         border: 1px solid rgba(192, 192, 192, 0.795);
         border-left: 0;
+        padding: 0 5px;
         &:hover{
             cursor: pointer;
         }
