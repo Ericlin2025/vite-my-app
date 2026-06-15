@@ -1,6 +1,4 @@
-<script setup>
 
-</script>
 <template>
   <div class="home-container">
     <!-- 顶部 Header -->
