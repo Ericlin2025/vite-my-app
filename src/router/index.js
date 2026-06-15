@@ -16,6 +16,8 @@ import Feature from "@/components/feature.vue";
 import Progress from "@/components/progress.vue";
 import Chat from '@/views/Chat/index.vue'
 import ChatDetail from "@/views/Detail/children/chat-detail.vue";
+import Login from '@/views/Login/index.vue'
+import Register from '@/views/Register/index.vue'
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes:[
@@ -93,8 +95,22 @@ const router = createRouter({
         {
             path:'/chat',
             component:Chat
+        },
+        {
+            path:'/login',
+            component:Login
+        },
+        {
+            path:'/register',
+            component:Register
         }
-    ]
+    ],
+      scrollBehavior(to, from, savedPosition) {
+    // 每次路由切换后，滚动到页面顶部
+    return { top: 0, behavior: 'auto' }
+    // behavior: 'smooth' 可选(auto立刻跳转,smooth平滑滚动,instant立刻跳转)，平滑滚动
+  }
+
 })
 
 export default router

@@ -19,7 +19,7 @@ const chatName = ref('')
 
 const sendMessage =(ms)=>{
     const data ={
-         userName:chatName.value,
+            userName:chatName.value,
             content:ms,
             sendTime:dayjs().format('YYYY-MM-DD hh:mm:ss')
     }
@@ -36,7 +36,7 @@ onMounted(()=>{
     }
 
     ws.onmessage = (ms) =>{
-        console.log('收到的消息为：',ms)
+        console.log('收到的消息为：',JSON.parse(ms.data))
         messageList.value.push(JSON.parse(ms.data))
         console.log(messageList.value)
     }

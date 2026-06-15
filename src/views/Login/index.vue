@@ -1,0 +1,177 @@
+
+
+
+<script setup>
+
+import { ref } from 'vue';
+
+const userList = ref(JSON.parse(localStorage.getItem('userList')||'[]'))
+const select = ref('密码登录')
+const userName =ref('')
+const userPassword = ref('')
+const loginSelection = ['密码登录','扫码登录']
+const login = () =>{
+    const found = userList.value.find(item => item.userName===userName.value&&item.password===userPassword.value)
+    if(found){
+        alert('登录成功')
+        localStorage.setItem("userInfo",JSON.stringify(found))
+        location.href='/'
+
+    }else{
+        alert('账号或者密码错误')
+    }
+}
+</script>
+
+<template>
+    <div class="body">
+        <div class="title">
+            <h1>🧩 我的功能中心</h1>
+            <p>选择工具，提升效率</p>
+        </div>
+        <div class="login">
+            <div class="hd">
+                <h2>欢迎登录</h2>
+                <ul>
+                    <li v-for="s in loginSelection"
+                    @click="select=s"
+                    :class="{active:select===s}"
+                    >
+                        {{ s }}
+                    </li>
+                </ul>
+            </div>
+            <div class="bd" v-if="select==='密码登录'">
+                <div class="userName">
+                    <span>👤</span>
+                    <input type="text" placeholder='请输入用户名' v-model="userName">
+                </div>
+                <div class="userPassword">
+                    <span>🔑</span>
+                    <input type="password" placeholder="请输入密码" v-model="userPassword">
+                </div>
+                <button @click="login">登录</button>
+                <div class="ft">
+                    <RouterLink to="/register">还没有账号？去注册→</RouterLink>
+                </div>
+            </div>
+            <div v-else-if="select==='扫码登录'" class="bd">
+                请扫描二维码登录
+                
+            </div>
+           
+        </div> 
+        
+    </div>
+</template>
+
+<style scoped lang="scss">
+.active{
+    border-bottom: 3px solid rgb(61, 166, 251);
+}
+.body{
+    height: 100vh;
+    background-image: url(../../assets/img/bg/登录页背景.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
+.title{
+    position: absolute;
+    top: 250px;
+    left: 400px;
+    h1{
+      font-size: 72px;  
+      color: white;
+      font-weight: 700;
+    }
+    p{
+        font-size: 36px;
+        margin-top: 16px;
+        color: rgb(207, 215, 231);
+        text-align: center;
+    }
+}
+.login{
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    right: 200px;
+    top:250px ;
+    background-color: #fff;
+   .hd{
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    ul{
+        display: flex;
+        gap: 18px;
+        li{
+            height: 45px;
+            line-height: 45px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+   }
+   .bd{
+    width: 400px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    // gap: 30px;
+    // align-items: center;
+    .userName,
+    .userPassword{
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+            border: 1px solid rgb(211, 220, 230);
+            outline: none;
+            width: 380px;
+            height: 50px;
+            span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 40px;
+                text-align: center;
+
+                // background-color: red;
+
+            }
+            input{
+                // border-radius: 4px;
+                // border: 1px solid rgb(211, 220, 230);
+                outline: none;
+                border: none;
+                width: 380px;
+                height: 42px;
+            }
+    }
+    button{
+        background-color: rgb(61, 166, 251);
+        color: white;
+        border: none;
+        width: 380px;
+        height: 42px;
+        // margin-top: 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        &:hover{
+            cursor: pointer;
+        }
+
+    }
+    .ft{
+        margin-top: 10px;
+    }
+   }
+}
+
+</style>

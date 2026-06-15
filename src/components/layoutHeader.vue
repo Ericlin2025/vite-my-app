@@ -1,4 +1,12 @@
 <script setup>
+import { ref } from 'vue';
+
+const userInfo = ref(JSON.parse(localStorage.getItem('userInfo')||'null'))
+const loginOut = () =>{
+    localStorage.removeItem('userInfo')
+    alert('成功退出登录')
+    location.href='/login'
+}
 </script>
 
 <template>
@@ -29,6 +37,13 @@
                 </li>
                 
             </ul>
+        </div>
+        <div class="loginStatus" v-if="userInfo===null">
+            <RouterLink to="/login">登录后使用，去登录</RouterLink>
+        </div>
+        <div v-else class="loginStatus">
+           <p>欢迎你， {{ userInfo.userName }}</p>
+           <button @click="loginOut">退出登录</button>
         </div>
     </div>
 </template>
@@ -89,6 +104,24 @@
                 }
 
             }
+        }
+    }
+    .loginStatus{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: rgb(0, 195, 255);
+        a{
+            color: yellow;
+        }
+        button{
+            background-color: red;
+            color: white;
+            width: 80px;
+            height: 30px;
+            border: none;
+            border-radius: 5px;
         }
     }
 }
