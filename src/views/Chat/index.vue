@@ -65,7 +65,7 @@ onUnmounted(()=>{
 
 <p>您的聊天名为：{{ chatName||'暂无聊天名，请创建您的聊天名' }}</p>
 <chatList :data="messageList" :name="chatName"/>
-<chatInput @send="sendMessage"/>
+<chatInput :status="connectStatus" @send="sendMessage"/>
 </template>
 
 

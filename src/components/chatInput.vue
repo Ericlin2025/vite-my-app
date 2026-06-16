@@ -1,6 +1,12 @@
 <script setup>
 import { ref } from 'vue';
 const message = ref('')
+const props = defineProps({
+    status:{
+        type:Number,
+        required:true
+    }
+})
 const emits = defineEmits(['send'])
 // 表情列表
 const emojis = ref([
@@ -33,7 +39,7 @@ const sendMessage = () =>{
         <span class="emojis" 
         @click="emojisShow=!emojisShow"
         >😊添加表情</span>
-    <button @click="sendMessage">发送</button>
+    <button @click="sendMessage" :disabled="status===0">发送</button>
 </div>
 </template>
 
