@@ -34,7 +34,7 @@ h2{
 
 .page-main {
   width: 100%;
-  padding-top: 86px;
+  /* padding-top: 86px; */
   box-sizing: border-box;
 }
 
