@@ -4,8 +4,8 @@
 
 **在线访问：**
 
-- 主域名：[https://www.myfeature.fun/](https://www.myfeature.fun/)
-- Vercel 域名：[https://vite-my-app.vercel.app/](https://vite-my-app.vercel.app/)
+- 主域名（国内访问推荐使用）：[https://www.myfeature.fun/](https://www.myfeature.fun/)
+- Vercel 域名（国外访问）：[https://vite-my-app.vercel.app/](https://vite-my-app.vercel.app/)
 
 ---
 
