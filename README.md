@@ -2,7 +2,10 @@
 
 基于 **Vue 3 + Vite + Element Plus** 构建的个人功能集成平台。项目采用模块化架构，将天气查询、知识问答、任务管理、健身打卡等实用工具统一收纳，并提供用户认证、功能进度追踪与开发笔记等配套能力。
 
-**在线访问：** [https://vite-my-app.vercel.app/](https://vite-my-app.vercel.app/)
+**在线访问：**
+
+- 主域名：[https://www.myfeature.fun/](https://www.myfeature.fun/)
+- Vercel 域名：[https://vite-my-app.vercel.app/](https://vite-my-app.vercel.app/)
 
 ---
 
@@ -17,7 +20,7 @@
 | UI 组件库 | Element Plus |
 | 数据持久化 | localStorage（用户、待办、打卡、日记等） |
 | 实时通信 | WebSocket（在线聊天室） |
-| 线上部署 | [Vercel](https://vercel.com/) — `https://vite-my-app.vercel.app/` |
+| 线上部署 | [Vercel](https://vercel.com/) — [myfeature.fun](https://www.myfeature.fun/) / [vite-my-app.vercel.app](https://vite-my-app.vercel.app/) |
 
 ---
 
@@ -274,9 +277,12 @@ vue3-my-app/
 
 ## 在线预览
 
-项目已部署至 Vercel，可直接访问：
+项目已部署至 Vercel，支持双域名访问：
 
-**[https://vite-my-app.vercel.app/](https://vite-my-app.vercel.app/)**
+| 域名类型 | 地址 |
+|---------|------|
+| 自定义域名（主） | [https://www.myfeature.fun/](https://www.myfeature.fun/) |
+| Vercel 默认域名 | [https://vite-my-app.vercel.app/](https://vite-my-app.vercel.app/) |
 
 ---
 
