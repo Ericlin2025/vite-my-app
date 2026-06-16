@@ -146,7 +146,33 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     .subtitle {
       color: #5873eb;
-      font-size: 20px;
+      font-size: clamp(14px, 2.5vw, 20px);
     }
   }
+
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: 24px;
+    padding: 10px 12px 0;
+
+    .back-btn {
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .icon {
+        font-size: 2rem;
+      }
+    }
+
+    h2 {
+      font-size: 14px;
+    }
+  }
+}
 </style>

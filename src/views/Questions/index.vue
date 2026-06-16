@@ -57,7 +57,11 @@ const questions = async (a, b, c, d) => {
 }
 .bd{
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 // 头部样式
 .quiz-header {
@@ -122,21 +126,22 @@ const questions = async (a, b, c, d) => {
 // 表单区域
 .form-section {
     max-width: 600px;
-    /* margin: 0 auto 40px; */
+    width: 100%;
     animation: slideUp 0.5s ease;
 }
 
 // 问题列表区域
 .questions-section {
     max-width: 900px;
-    /* margin: 0 auto; */
+    width: 100%;
+    flex: 1;
     animation: fadeIn 0.5s ease;
 }
 
 /* // 空状态样式 */
 .empty-state {
     max-width: 500px;
-    /* margin: 80px auto; */
+    width: 100%;
     text-align: center;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 32px;
@@ -189,6 +194,12 @@ const questions = async (a, b, c, d) => {
 @media (max-width: 768px) {
     .quiz-page {
         padding: 20px 16px;
+    }
+
+    .bd {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
     }
     
     .quiz-header {

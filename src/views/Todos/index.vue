@@ -89,27 +89,34 @@ watch(list,(newl)=>{
 }
 
 .todos {
-    // background-color: #7cb0ff;
     display: flex;
-    justify-content: space-around;
-    // align-items: center;
-    // max-width: 1600px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
     margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
     
     .list-container {
-        margin-top: 20px;
+        flex: 1;
+        min-width: 280px;
+        max-width: 900px;
+        margin-top: 0;
     }
     
     .empty-state {
         text-align: center;
-        width: 300px;
-        height: 400px;
+        width: 100%;
+        max-width: 400px;
+        min-height: 300px;
+        height: auto;
         padding: 60px 20px;
         background: white;
         border-radius: 24px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        margin-top: 20px;
+        margin-top: 0;
+        box-sizing: border-box;
         
         .empty-icon {
             font-size: 64px;
@@ -132,7 +139,15 @@ watch(list,(newl)=>{
     }
     
     .todos {
+        flex-direction: column;
+        align-items: stretch;
         padding: 16px;
+        gap: 16px;
+
+        .list-container {
+            max-width: 100%;
+            min-width: 0;
+        }
     }
 }
 </style>

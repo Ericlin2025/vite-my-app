@@ -84,7 +84,7 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
 
 <style scoped lang="scss">
 .banner{
-    height: 650px;
+    height: clamp(200px, 40vw, 650px);
     background-color: white;
     background-image: url(../assets/img/bg/功能页banner.jpg);
     background-size: cover;
@@ -93,8 +93,11 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
 }
 .completed,
 .uncomplete{
-    width: 90%;
+    width: 100%;
+    max-width: 1600px;
     margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
     .tt{
     margin: 30px 0;
     h2{
@@ -104,14 +107,13 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
 .items{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
+    justify-items: center;
 }
 }
 /* 单个卡片样式 */
 .feature-card {
-  /* display: flex;
-  justify-content: center; */
   background: rgba(255, 255, 255, 0.808);
   border-radius: 24px;
   padding: 1.8rem;
@@ -121,8 +123,10 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
   flex-direction: column;
   backdrop-filter: blur(0px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  height: 350px;
-  width: 340px;
+  min-height: 320px;
+  width: 100%;
+  max-width: 340px;
+  box-sizing: border-box;
 }
 
 .feature-card:hover {
@@ -233,5 +237,35 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
 
 .use-link:hover .use-arrow {
   transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .banner{
+    height: 200px;
+  }
+
+  .completed,
+  .uncomplete{
+    padding: 0 12px;
+
+    .items{
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .feature-card{
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .use-link {
+    justify-content: center;
+  }
 }
 </style>

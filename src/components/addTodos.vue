@@ -146,7 +146,9 @@ const add = () =>{
     }
 }
 .input {
+    width: 100%;
     max-width: 800px;
+    box-sizing: border-box;
     // margin: 0 auto;
     padding: 30px;
     background: linear-gradient(135deg, #66c0eab0 0%, #42f2ffdc 100%);

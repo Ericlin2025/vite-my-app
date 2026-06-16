@@ -83,14 +83,20 @@ const login = () =>{
     border-bottom: 3px solid rgb(61, 166, 251);
 }
 .body{
-    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
     background-image: url(../../assets/img/bg/登录页背景.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 80px 24px 40px;
     position: relative;
     .back{
-        
         position: absolute;
         top: 20px;
         left: 20px;
@@ -100,34 +106,33 @@ const login = () =>{
             background-color:rgb(61, 166, 251);
             color: white;
         }
-
     }
 }
 .title{
-    position: absolute;
-    top: 250px;
-    left: 400px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 520px;
+    text-align: center;
     h1{
-      font-size: 72px;  
+      font-size: clamp(2rem, 5vw, 4.5rem);
       color: white;
       font-weight: 700;
     }
     p{
-        font-size: 36px;
+        font-size: clamp(1rem, 2.5vw, 2.25rem);
         margin-top: 16px;
         color: rgb(207, 215, 231);
-        text-align: center;
     }
 }
 .login{
+    width: 100%;
+    max-width: 420px;
     border-radius: 10px;
     padding: 20px;
-    position: absolute;
-    right: 200px;
-    top:250px ;
     background-color: #fff;
+    box-sizing: border-box;
    .hd{
-    height: 80px;
+    min-height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -144,60 +149,68 @@ const login = () =>{
     }
    }
    .bd{
-    width: 400px;
-    height: 280px;
+    width: 100%;
+    min-height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    // gap: 30px;
-    // align-items: center;
+    gap: 16px;
+    box-sizing: border-box;
     .userName,
     .userPassword{
         display: flex;
         align-items: center;
         border-radius: 4px;
-            border: 1px solid rgb(211, 220, 230);
+        border: 1px solid rgb(211, 220, 230);
+        outline: none;
+        width: 100%;
+        max-width: 380px;
+        height: 50px;
+        box-sizing: border-box;
+        span{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 40px;
+            text-align: center;
+        }
+        input{
             outline: none;
-            width: 380px;
-            height: 50px;
-            span{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-width: 40px;
-                text-align: center;
-
-                // background-color: red;
-
-            }
-            input{
-                // border-radius: 4px;
-                // border: 1px solid rgb(211, 220, 230);
-                outline: none;
-                border: none;
-                width: 380px;
-                height: 42px;
-            }
+            border: none;
+            flex: 1;
+            min-width: 0;
+            height: 42px;
+        }
     }
     button{
         background-color: rgb(61, 166, 251);
         color: white;
         border: none;
-        width: 380px;
+        width: 100%;
+        max-width: 380px;
         height: 42px;
-        // margin-top: 16px;
         border-radius: 4px;
         font-size: 14px;
         &:hover{
             cursor: pointer;
         }
-
     }
     .ft{
         margin-top: 10px;
     }
    }
+}
+
+@media (max-width: 768px) {
+    .body{
+        flex-direction: column;
+        padding: 70px 16px 32px;
+        gap: 24px;
+    }
+    .title{
+        max-width: 100%;
+    }
 }
 
 </style>

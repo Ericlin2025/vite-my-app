@@ -59,40 +59,50 @@ const loginOut = () =>{
 }
 .hd{
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color:rgba(48, 48, 48, 0.726);
     border-bottom: 1px solid #463d3c;
     width: 100%;
-    height: 86px;
-    margin: 0 auto;
+    min-height: 86px;
+    padding: 0 24px;
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     z-index: 3;
     font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
     .lt{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        flex-shrink: 0;
         h1{
             color: white;
+            font-size: 1.5rem;
+            white-space: nowrap;
         }
         p{
             color: white;
             text-align: center;
+            font-size: 0.85rem;
         }
     }
     .rt{
-        width: 60%;
+        flex: 1;
+        min-width: 0;
         ul{
-            // border: 1px solid #000;
             width: 100%;
-            height: 100%;
             display: flex;
-            // justify-content: space-around;
-            gap: 100px;
+            justify-content: center;
+            gap: 48px;
             align-items: center;
+            flex-wrap: wrap;
             li{
-                min-width: 100px;
-                height: 100%;
+                min-width: auto;
                 
                 &:hover{
                     border-bottom: 4px solid rgb(0, 195, 255);
@@ -101,8 +111,7 @@ const loginOut = () =>{
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 100%;
-                    height: 100%;
+                    padding: 8px 4px;
                     color: white;
                     font-size: 18px;
                     
@@ -116,9 +125,15 @@ const loginOut = () =>{
         justify-content: center;
         align-items: center;
         gap: 10px;
+        flex-shrink: 0;
         color: rgb(0, 195, 255);
+        p{
+            margin: 0;
+            white-space: nowrap;
+        }
         a{
             color: yellow;
+            font-size: 0.9rem;
         }
         button{
             background-color: red;
@@ -127,6 +142,7 @@ const loginOut = () =>{
             height: 30px;
             border: none;
             border-radius: 5px;
+            flex-shrink: 0;
         }
         .admin{
             color: rgb(66, 231, 66);
@@ -135,6 +151,45 @@ const loginOut = () =>{
         .other{
             color: #b3b3b3;
             font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .hd{
+        padding: 10px 16px;
+        min-height: auto;
+
+        .lt{
+            h1{
+                font-size: 1.1rem;
+            }
+            p{
+                display: none;
+            }
+        }
+
+        .rt{
+            order: 3;
+            flex-basis: 100%;
+            ul{
+                gap: 20px;
+                li a{
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .loginStatus{
+            p{
+                font-size: 12px;
+                white-space: normal;
+                max-width: 140px;
+                line-height: 1.3;
+            }
+            a{
+                font-size: 12px;
+            }
         }
     }
 }

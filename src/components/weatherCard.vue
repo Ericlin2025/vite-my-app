@@ -205,7 +205,9 @@ $spacing-lg: 20px;
 
 // 主卡片样式
 .weather-card {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
   margin: $spacing-lg auto;
   padding: $spacing-lg;
   border-radius: $border-radius;

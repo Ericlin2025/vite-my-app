@@ -138,8 +138,10 @@ footer{
 .diary-container {
   min-height: 100vh;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 20px 16px;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   .diary-header {
@@ -211,7 +213,8 @@ footer{
   border: 1px solid rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
-  height: 480px;
+  min-height: 480px;
+  height: auto;
 
   .card-header {
     display: flex;
@@ -329,7 +332,8 @@ footer{
 .diary-history-section {
   display: flex;
   flex-direction: column;
-  height: 480px;
+  min-height: 480px;
+  height: auto;
 
   .section-title {
     margin: 0 0 16px 0;
@@ -429,6 +433,38 @@ footer{
         word-break: break-all;
         white-space: pre-wrap; // 保留换行符
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .diary-container {
+    padding: 16px 12px;
+  }
+
+  .diary-header .title {
+    font-size: 1.6rem;
+    flex-wrap: wrap;
+  }
+
+  .diary-write-card,
+  .diary-history-section {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .mood-selector {
+    flex-wrap: wrap;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+
+    .save-btn {
+      width: 100%;
+      text-align: center;
     }
   }
 }

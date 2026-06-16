@@ -89,39 +89,43 @@ watch(userList,newValue=>{
 
 <style scoped lang="scss">
 .body{
-    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
     background-image: url(../../assets/img/bg/注册页背景.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
     .register{
-        position: absolute;
-        top: 250px;
-        right: 200px;
+        width: 100%;
+        max-width: 460px;
         background-color: rgb(255, 255, 255);
         border-radius: 10px;
         padding: 20px;
-        // width: 400px;
-        // height: 280px;
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         .bd{
             margin-top: 10px;
-            width: 420px;
-            height: 320px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
             gap: 20px;
             align-items: center;
             .ts{
-                width: 380px;
+                width: 100%;
+                max-width: 380px;
                 color: #a0a0a0;
                 font-size: 12px;
+                line-height: 1.4;
             }
             .input{
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -132,28 +136,25 @@ watch(userList,newValue=>{
             .confirm{
                 display: flex;
                 align-items: center;
-                
                 border-radius: 4px;
-                    border: 1px solid rgb(211, 220, 230);
-                    outline: none;
-                    width: 380px;
-                    height: 50px;
+                border: 1px solid rgb(211, 220, 230);
+                outline: none;
+                width: 100%;
+                max-width: 380px;
+                height: 50px;
+                box-sizing: border-box;
                 span{
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     min-width: 40px;
                     text-align: center;
-
-                    // background-color: red;
-
                 }
                 input{
-                    // border-radius: 4px;
-                    // border: 1px solid rgb(211, 220, 230);
                     outline: none;
                     border: none;
-                    width: 380px;
+                    flex: 1;
+                    min-width: 0;
                     height: 42px;
                 }
             }
@@ -161,25 +162,22 @@ watch(userList,newValue=>{
                 background-color: rgb(61, 166, 251);
                 color: white;
                 border: none;
-                width: 380px;
+                width: 100%;
+                max-width: 380px;
                 height: 42px;
-                // margin-top: 16px;
                 border-radius: 4px;
                 font-size: 14px;
                 &:hover{
                     cursor: pointer;
                 }
-
             }
-        
         }
         .ft{
             margin-top: 10px;
-            width: 420px;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            // background-color: red;
         }
     }
 }

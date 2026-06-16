@@ -164,15 +164,12 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   // 主容器
   .container {
-    width: 2000px;
+    width: 100%;
+    max-width: 1400px;
     display: flex;
-    // grid-template-columns: repeat(4,1fr);
-    gap:20px;
-    // max-width: 600px;
-    // width: 1500px;
-    // justify-content: space-around;
-    // border: 1px solid black;
+    gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -220,8 +217,10 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   // 空状态
  
   .empty-state {
-    width: 400px;
-    height: 600px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+    height: auto;
     background: rgba(255, 255, 255, 0.95);
     border-radius: $card-border-radius;
     padding: 60px 24px;
@@ -315,11 +314,18 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .empty-state {
+      width: 100%;
+      max-width: 100%;
       padding: 40px 16px;
+      min-height: 200px;
 
       .empty-icon {
         font-size: 60px;
       }
+    }
+
+    .container {
+      gap: 16px;
     }
   }
 }

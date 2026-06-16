@@ -1,13 +1,35 @@
 <script setup>
 import { features } from '@/api/features';
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'null'))
+
+const carouselHeight = ref('750px')
+const updateCarouselHeight = () => {
+  const width = window.innerWidth
+  if (width <= 480) {
+    carouselHeight.value = '320px'
+  } else if (width <= 768) {
+    carouselHeight.value = '420px'
+  } else if (width <= 1024) {
+    carouselHeight.value = '560px'
+  } else {
+    carouselHeight.value = '750px'
+  }
+}
+
+onMounted(() => {
+  updateCarouselHeight()
+  window.addEventListener('resize', updateCarouselHeight)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateCarouselHeight)
+})
 </script>
 
 <template>
  <div class="banner">
-       
-          <el-carousel trigger="click" height="750px">
+          <el-carousel trigger="click" :height="carouselHeight">
             <el-carousel-item 
             v-for="item in features" 
             :key="item" 
@@ -72,10 +94,13 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
 
 .banner{
   width: 100%;
-  height: 700px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  /* border-bottom: 1px solid black; */
+  margin: -86px auto 50px;
+  box-sizing: border-box;
+
+  :deep(.el-carousel),
+  :deep(.el-carousel__container) {
+    width: 100%;
+  }
   .demonstration {
   color: var(--el-text-color-secondary);
   /* background-color: gray; */
@@ -90,8 +115,9 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
     
 }
 :deep(.el-carousel__indicators) {
-        bottom: 20px;  // 调整到底部位置
-        left: 80%;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 :deep(.el-carousel__indicator) {
     // position: absolute;
@@ -115,38 +141,39 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
     position: absolute;
 }
 .el-carousel__item .app{
-    width: 200px;
-    height: 200px;
-    // border: 1px solid black;
+    width: min(200px, 70vw);
+    min-height: 160px;
+    height: auto;
     border-radius: 8px;
     position: absolute;
-    top: 30%;
-    left: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
     background-color: rgba(255, 255, 255, 0.493);
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
+    padding: 12px;
+    box-sizing: border-box;
     box-shadow: 10px 10px 30px black;
-    // animation: fadeInUp 0.6s ease-out 0.2s both;
-    
-    
 }
 .el-carousel__item a{
-        min-width: 160px;
+        min-width: 140px;
         min-height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: rgb(0, 195, 255);
         color: white;
-        font-size: 20px;
+        font-size: clamp(14px, 2vw, 20px);
         text-align: center;
         border-radius: 20px;
-        // z-index: 888;
         position: absolute;
-        top: 60%;
-        left: 21%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 80%);
+        padding: 0 16px;
     }
 .el-carousel__item h2 {
   color: #006eff;
@@ -178,35 +205,32 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
 //  }
 }
 .cards{
-padding: 20px ;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+  box-sizing: border-box;
 .tt{
-    width: 1600px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0 auto 20px;
     h2{
         color: white;
     }
-    margin-bottom: 20px;
 }
 }
 /* 卡片网格 - 响应式布局 */
 .cards-grid {
- 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
-  /* max-width: 1500px; */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  width: 100%;
   margin: 0 auto;
-  /* border-top: 1px solid black; */
-//   padding: 20px ;
-  width: 1600px;
-  /* height: 1000px; */
   padding-bottom: 2rem;
+  box-sizing: border-box;
 }
 
 /* 单个卡片样式 */
 .feature-card {
-  /* display: flex;
-  justify-content: center; */
   background: rgba(255, 255, 255, 0.808);
   border-radius: 24px;
   padding: 1.8rem;
@@ -216,8 +240,9 @@ padding: 20px ;
   flex-direction: column;
   backdrop-filter: blur(0px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  height: 350px;
-  width: 340px;
+  min-height: 320px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .feature-card:hover {
@@ -346,20 +371,23 @@ padding: 20px ;
 }
 
 /* 移动端适配 */
-@media (max-width: 640px) {
-  .home-container {
-    padding: 1rem;
+@media (max-width: 768px) {
+  .banner {
+    margin-top: -110px;
   }
-  .app-header h1 {
-    font-size: 1.8rem;
+
+  .cards{
+    padding: 0 12px 20px;
   }
+
   .cards-grid {
-    gap: 1rem;
+    gap: 16px;
     grid-template-columns: 1fr;
   }
   
   .feature-card {
     padding: 1.4rem;
+    min-height: auto;
   }
   
   .card-footer {
@@ -375,6 +403,15 @@ padding: 20px ;
   .detail-link {
     width: auto;
     justify-content: center;
+  }
+
+  .el-carousel__item h2 {
+    font-size: 1rem;
+  }
+
+  .el-carousel__item p {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
   }
 }
 </style>

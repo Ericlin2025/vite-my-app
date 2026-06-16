@@ -95,13 +95,15 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 }
   .history {
   animation: fadeInUp 0.6s ease-out 0.2s both;
-  width: 637px;
+  width: 100%;
+  max-width: 637px;
 
   .list {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    width: 637px;
-    height: 490px;
+    width: 100%;
+    min-height: 300px;
+    height: auto;
     border-radius: $card-border-radius;
     padding: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
@@ -228,8 +230,10 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: $card-border-radius;
-    width: 637px;
-    height: 400px;
+    width: 100%;
+    max-width: 637px;
+    min-height: 200px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -239,7 +243,8 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
     .search-section {
-    width: 635px;
+    width: 100%;
+    max-width: 635px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: $card-border-radius;
     padding: 24px;
@@ -349,4 +354,30 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
     }
   }
+
+@media (max-width: 768px) {
+  .search-section {
+    padding: 16px;
+    margin-top: 12px;
+
+    .search-box {
+      flex-wrap: wrap;
+      border-radius: 16px;
+      padding: 8px;
+
+      .search-input {
+        font-size: 14px;
+      }
+
+      .search-btn {
+        width: 100%;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .history .list {
+    padding: 16px;
+  }
+}
 </style>
