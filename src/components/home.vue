@@ -147,7 +147,7 @@ onUnmounted(() => {
     border-radius: 8px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 20%;
     transform: translate(-50%, -65%);
     background-color: rgba(255, 255, 255, 0.493);
     display: flex;
@@ -170,8 +170,8 @@ onUnmounted(() => {
         text-align: center;
         border-radius: 20px;
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 55%;
+        left: 20%;
         transform: translate(-50%, 80%);
         padding: 0 16px;
     }
