@@ -23,6 +23,7 @@ const router = createRouter({
     routes:[
         {
             path:'/',
+            meta: { title: '首页 - 我的功能中心' },
             component:Layout,
             children:[
                 {
@@ -42,10 +43,12 @@ const router = createRouter({
         
         {
             path:'/weather',
+            meta: { title: '天气助手' },
             component:Weather,
             children:[
                 {
                     path:'/weather/diary',
+                    meta: { title: '天气助手-日记' },
                     component:Diary
                 },
                 {
@@ -60,51 +63,63 @@ const router = createRouter({
             children:[
                 {
                     path:'/detail/weather',
+                    meta: { title: '天气助手开发文档' },
                     component:WeatherDetail
                 },
                 {
                     path:'/detail/questions',
+                    meta: { title: '趣味问答开发文档' },
                     component:QuestionsDetail
                 },
                 {
                     path:'/detail/todos',
+                    meta: { title: '待办事项开发文档' },
                     component:TodosDetail
                 },
                 {
                     path:'/detail/fitness',
+                    meta: { title: '健康打卡开发文档' },
                     component:FitnessDetail
                 },
                 {
                     path:'/detail/chat',
+                    meta: { title: '聊天室开发文档' },
                     component:ChatDetail
                 }
             ]
         },
         {
             path:'/questions',
+            meta: { title: '趣味问答' },
             component:Questions
         },
         {
             path:'/todos',
+            meta: { title: '待办事项' },
             component:Todos
         },
         {
             path:'/fitness',
+            meta: { title: '健康打卡' },
             component:Fitness
         },
         {
             path:'/chat',
+            meta: { title: '在线聊天室' },
             component:Chat
         },
         {
             path:'/login',
+            meta: { title: '用户登录' },
             component:Login
         },
         {
             path:'/register',
+            meta: { title: '用户注册' },
             component:Register
         }
     ],
+
       scrollBehavior(to, from, savedPosition) {
     // 每次路由切换后，滚动到页面顶部
     return { top: 0, behavior: 'auto' }
@@ -112,5 +127,11 @@ const router = createRouter({
   }
 
 })
-
+    // 在路由守卫中动态修改
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
 export default router
