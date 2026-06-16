@@ -66,7 +66,7 @@ const loginOut = () =>{
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
-    z-index: 3;
+    z-index: 30;
     font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
     .lt{
         display: flex;
