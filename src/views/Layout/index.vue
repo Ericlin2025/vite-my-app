@@ -1,12 +1,12 @@
 
 <template>
   <div class="home-container">
+    <!-- 顶部 Header -->
     <layoutHeader/>
-    <main class="page-main">
-      <RouterView/>
-      <layoutFooter/>
-    </main>
-  </div>
+    <RouterView/>
+    
+    <layoutFooter/>
+    </div>
 </template>
 
 <script setup>
@@ -23,25 +23,14 @@ h2{
 /* 整体容器 */
 .home-container {
   min-height: 100vh;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  background-image: url(../../assets/img/bg/主页背景.png);
+ background-image: url(../../assets/img/bg/主页背景.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
-}
-
-.page-main {
-  width: 100%;
-  /* padding-top: 86px; */
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .page-main {
-    padding-top: 110px;
-  }
+  /* padding: 2rem; */
+  display: flex;
+  flex-direction: column;
+  /* background-color: #ffbd5a; */
+  
 }
 
 

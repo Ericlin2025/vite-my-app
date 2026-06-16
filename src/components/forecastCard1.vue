@@ -124,11 +124,8 @@ const getWeekday = (date) => {
 
 <style scoped lang="scss">
 .forecast-card {
-  width: 100%;
-  max-width: 400px;
-  min-height: 400px;
-  height: auto;
-  box-sizing: border-box;
+  width: 400px;
+  height: 690px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 24px;
   padding: 20px;

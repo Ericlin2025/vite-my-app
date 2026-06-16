@@ -19,25 +19,12 @@ $primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 $card-border-radius: 24px;
 $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     .map{
-        width: 100%;
-        max-width: 100%;
+        width: 1500px;
         display: flex;
         flex-direction: column;
-        padding: 16px;
+        padding: 20px;
         border-radius: $card-border-radius;
         background: rgba(255, 255, 255, 0.95);
         margin-top: 20px;
-        box-sizing: border-box;
-
-        h2 {
-            font-size: clamp(14px, 3vw, 18px);
-            line-height: 1.5;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
     }
 </style>

@@ -37,42 +37,31 @@ const props = defineProps({
     background-color: #d6d6d6bd;
 }    
 .list {
-    width: 100%;
-    margin: 0 auto 16px;
-    min-height: 200px;
-    max-height: calc(100vh - 320px);
-    overflow-y: auto;
+    width: 80%;
+    margin: 20px auto;
     ul{
         display: flex;
         flex-direction: column;
         width: 100%;
+        // height: 700px;
+        // border: 1px solid rgba(190, 190, 190, 0.788);
         overflow: auto;
         border-radius: 8px;
-        padding-bottom: 8px;
         li{
+            
             display: flex;
             flex-direction: column;
-            max-width: 85%;
+            max-width: 70%;
             margin: 10px;
-            padding: 8px 12px;
-            border-radius: 8px;
-            word-break: break-word;
+            padding: 5px;
+            border-radius: 5px;
+            
+
             
             .time{
                 color: rgb(134, 134, 134);
-                font-size: 12px;
+                font-size: 13px;
             }
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .list {
-        max-height: calc(100vh - 280px);
-
-        ul li {
-            max-width: 90%;
-            margin: 8px 4px;
         }
     }
 }

@@ -145,15 +145,13 @@ watch(checkList,(newlist)=>{
         
         .checkin-section {
             flex: 1;
-            min-width: 0;
+            min-width: 350px;
             max-width: 500px;
-            width: 100%;
         }
         
         .heatmap-section {
             flex: 1;
-            min-width: 0;
-            width: 100%;
+            min-width: 500px;
         }
     }
     
@@ -165,36 +163,19 @@ watch(checkList,(newlist)=>{
 // 响应式布局
 @media (max-width: 968px) {
     .fitness {
-        padding: 20px 16px;
+        padding: 20px;
         
-        .header {
-            margin-bottom: 24px;
-            padding-top: 40px;
-
-            .back-link {
-                position: static;
-                transform: none;
-                display: inline-block;
-                margin-bottom: 12px;
-
-                &:hover {
-                    transform: translateX(-5px);
-                }
-            }
-
-            h1 {
-                font-size: clamp(1.5rem, 5vw, 2.25rem);
-            }
-        }
-
         .data {
             flex-direction: column;
-            align-items: stretch;
-            gap: 24px;
+            align-items: center;
             
-            .checkin-section,
-            .heatmap-section {
+            .checkin-section {
                 max-width: 100%;
+                width: 100%;
+            }
+            
+            .heatmap-section {
+                min-width: auto;
                 width: 100%;
             }
         }
