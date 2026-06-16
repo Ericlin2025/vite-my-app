@@ -220,7 +220,7 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   // 空状态
  
   .empty-state {
-    width: 400px;
+    width: 370px;
     height: 600px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: $card-border-radius;
