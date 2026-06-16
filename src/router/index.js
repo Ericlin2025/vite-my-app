@@ -48,7 +48,7 @@ const router = createRouter({
             children:[
                 {
                     path:'/weather/diary',
-                    meta: { title: '天气助手-日记' },
+                    meta: { title: '天气助手-天气随笔' },
                     component:Diary
                 },
                 {
