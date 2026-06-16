@@ -2,8 +2,10 @@
 
 
 <script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+import { ref,onMounted } from 'vue';
 
-import { ref } from 'vue';
 
 const userList = ref(JSON.parse(localStorage.getItem('userList')||'[]'))
 const select = ref('密码登录')
@@ -14,17 +16,28 @@ const login = () =>{
     const found = userList.value.find(item => item.userName===userName.value&&item.password===userPassword.value)
     if(found){
         alert('登录成功')
-        localStorage.setItem("userInfo",JSON.stringify(found))
-        location.href='/'
+        localStorage.setItem("loginUserInfo",JSON.stringify(found))
+        router.push('/')
 
     }else{
         alert('账号或者密码错误')
     }
 }
+// onMounted(()=>{
+//     const localStorageUsers = localStorage.getItem('userList')
+//     if(localStorageUsers){
+//         return
+//     }else{
+//         localStorage.setItem('userList',JSON.stringify(users))
+//     }
+// })
 </script>
 
 <template>
     <div class="body">
+        <div class="back">
+            <RouterLink to="/">←返回首页</RouterLink>
+        </div>
         <div class="title">
             <h1>🧩 我的功能中心</h1>
             <p>选择工具，提升效率</p>
@@ -76,6 +89,19 @@ const login = () =>{
     background-repeat: no-repeat;
     background-position: center center;
     position: relative;
+    .back{
+        
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        a{
+            padding: 10px;
+            border-radius: 8px;
+            background-color:rgb(61, 166, 251);
+            color: white;
+        }
+
+    }
 }
 .title{
     position: absolute;

@@ -1,29 +1,47 @@
 <script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
 import { ref,watch } from 'vue';
-import { users } from '@/api/users';
+
 const userList = ref(JSON.parse(localStorage.getItem('userList')||'[]'))
 const userName = ref('')
 const userPassword = ref('')
 const confirm = ref('')
+
+//正则表达式
+const ureg = /^[a-zA-Z0-9_]{3,10}$/
+const preg = /^[a-zA-Z0-9]{4,10}$/
+
 const register = () =>{
     const found = userList.value.find(item=>item.userName===userName.value)
     if(userName.value===''||userPassword.value===''||confirm.value===''){
         alert('请输入完整信息')
         
     }
+     else if(ureg.test(userName.value)===false){
+        alert('输入的用户名不符合规范，请重新输入')
+    }
+
+    else if(preg.test(userPassword.value)===false){
+        alert('输入的密码不符合规范，请重新输入')
+    }
+
     else if(userPassword.value!==confirm.value){
         alert('两次密码输入不一致')
     }
+   
     else if(found){
         alert('该用户名已被注册，请更换用户名')
     }
+    
     else{
         alert('创建成功')
         userList.value.push({
             userName:userName.value,
-            password:userPassword.value
+            password:userPassword.value,
+            isadmin:false
         })
-        location.href='/login'
+        router.push('/login')
     }
 }
 watch(userList,newValue=>{
@@ -38,13 +56,21 @@ watch(userList,newValue=>{
             <h2>创建新用户</h2>
         </div>
         <div class="bd">
-            <div class="userName">
+                <div class="input">
+                    <div class="userName">
                     <span>👤</span>
                     <input type="text" placeholder='请输入要创建的用户名' v-model="userName">
+                    
+                    </div>
+                    <span class="ts">提示：用户名可以由:a-z，A-Z，0-9，特殊字符：_ 这些字符组成，长度为:3-10</span>
                 </div>
-                <div class="userPassword">
+                <div class="input">
+                    <div class="userPassword">
                     <span>🔑</span>
                     <input type="password" placeholder="请输入要创建的密码" v-model="userPassword">
+                    </div>
+                    <span class="ts">提示：密码可以由:a-z，A-Z，0-9，这些字符组成，长度为:4-10</span>
+                
                 </div>
                 <div class="confirm">
                     <span>✅</span>
@@ -82,12 +108,25 @@ watch(userList,newValue=>{
         flex-direction: column;
         justify-content: space-around;
         .bd{
-            width: 400px;
-            height: 280px;
+            margin-top: 10px;
+            width: 420px;
+            height: 320px;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            gap: 20px;
             align-items: center;
+            .ts{
+                width: 380px;
+                color: #a0a0a0;
+                font-size: 12px;
+            }
+            .input{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
             .userName,
             .userPassword,
             .confirm{
@@ -135,7 +174,8 @@ watch(userList,newValue=>{
         
         }
         .ft{
-            width: 380px;
+            margin-top: 10px;
+            width: 420px;
             display: flex;
             justify-content: center;
             align-items: center;

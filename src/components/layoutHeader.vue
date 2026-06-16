@@ -1,11 +1,13 @@
 <script setup>
 import { ref } from 'vue';
-
-const userInfo = ref(JSON.parse(localStorage.getItem('userInfo')||'null'))
+import { useRouter } from 'vue-router';
+const router= useRouter()
+const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'null'))
 const loginOut = () =>{
-    localStorage.removeItem('userInfo')
+    localStorage.removeItem('loginUserInfo')
     alert('成功退出登录')
-    location.href='/login'
+    router.push('/login')
+    // location.href('/')
 }
 </script>
 
@@ -38,11 +40,14 @@ const loginOut = () =>{
                 
             </ul>
         </div>
-        <div class="loginStatus" v-if="userInfo===null">
+        <div class="loginStatus" v-if="loginUserInfo===null">
             <RouterLink to="/login">登录后使用，去登录</RouterLink>
         </div>
         <div v-else class="loginStatus">
-           <p>欢迎你， {{ userInfo.userName }}</p>
+            <p>欢迎你， {{ loginUserInfo.userName }} 
+            <span v-if="loginUserInfo.isadmin" class="admin">(管理者)</span>
+            <span v-else class="other">(普通用户)</span>
+            </p>
            <button @click="loginOut">退出登录</button>
         </div>
     </div>
@@ -122,6 +127,14 @@ const loginOut = () =>{
             height: 30px;
             border: none;
             border-radius: 5px;
+        }
+        .admin{
+            color: rgb(66, 231, 66);
+            font-size: 12px;
+        }
+        .other{
+            color: #b3b3b3;
+            font-size: 12px;
         }
     }
 }

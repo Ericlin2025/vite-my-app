@@ -1,7 +1,7 @@
 <script setup>
 import { features } from '@/api/features';
 import { ref } from 'vue';
-const userInfo = ref(JSON.parse(localStorage.getItem('userInfo')||'null'))
+const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'null'))
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const userInfo = ref(JSON.parse(localStorage.getItem('userInfo')||'null'))
                     <p>{{ item.description }}</p>
                     
                 </div>
-                <RouterLink :to="item.path" v-if="userInfo!==null">去使用→</RouterLink>
+                <RouterLink :to="item.path" v-if="loginUserInfo!==null">去使用→</RouterLink>
               
             </el-carousel-item>
           </el-carousel>
@@ -54,7 +54,7 @@ const userInfo = ref(JSON.parse(localStorage.getItem('userInfo')||'null'))
             <span class="badge" :style="{ backgroundColor: feature.completed?'#4caf50':'#9e9e9e' }">
                 {{ feature.completed?'已完成':'开发中' }}
             </span>
-            <RouterLink :to="feature.path" class="use-link" v-if="userInfo!==null">
+            <RouterLink :to="feature.path" class="use-link" v-if="loginUserInfo!==null">
                 去使用
                 <span class="use-arrow">→</span>
             </RouterLink>

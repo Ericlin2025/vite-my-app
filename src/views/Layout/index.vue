@@ -13,8 +13,7 @@
 //导入头部组件
 import layoutHeader from '@/components/layoutHeader.vue';
 import layoutFooter from '@/components/layoutFooter.vue';
-import { users } from '@/api/users';
-localStorage.setItem('userList',JSON.stringify(users))
+
 </script>
 
 <style scoped>

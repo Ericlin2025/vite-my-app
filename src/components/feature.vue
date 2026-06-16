@@ -4,7 +4,7 @@ import { ref } from 'vue';
 const completed = features.filter(i=>i.completed===true)
 const uncomplete = features.filter(i=>i.completed===false)
 
-const userInfo = ref(JSON.parse(localStorage.getItem('userInfo')||'null'))
+const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'null'))
 </script>
 
 <template>
@@ -36,7 +36,7 @@ const userInfo = ref(JSON.parse(localStorage.getItem('userInfo')||'null'))
             <span class="badge" :style="{ backgroundColor: feature.completed?'#4caf50':'#9e9e9e' }">
                 {{ feature.completed?'已完成':'开发中' }}
             </span>
-            <RouterLink :to="feature.path" class="use-link" v-if="userInfo!==null">
+            <RouterLink :to="feature.path" class="use-link" v-if="loginUserInfo!==null">
                 去使用
                 <span class="use-arrow">→</span>
             </RouterLink>
@@ -70,7 +70,7 @@ const userInfo = ref(JSON.parse(localStorage.getItem('userInfo')||'null'))
             <span class="badge" :style="{ backgroundColor: feature.completed?'#4caf50':'#9e9e9e' }">
                 {{ feature.completed?'已完成':'开发中' }}
             </span>
-            <RouterLink :to="feature.path" class="use-link">
+            <RouterLink :to="feature.path" class="use-link" v-if="loginUserInfo!==null">
                 去使用
                 <span class="use-arrow">→</span>
             </RouterLink>
