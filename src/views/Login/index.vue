@@ -11,7 +11,29 @@ const userList = ref(JSON.parse(localStorage.getItem('userList')||'[]'))
 const select = ref('密码登录')
 const userName =ref('')
 const userPassword = ref('')
-const loginSelection = ['密码登录','扫码登录']
+const loginSelection = ['密码登录','扫码登录','短信登录']
+const content = ref('获取验证码')
+const status = ref(false)
+const send = () =>{
+    let timer
+    let count = 15
+    
+    timer = setInterval(()=>{
+        status.value=true
+        if(count===1){
+            content.value='获取验证码'
+            clearInterval(timer)
+            timer=null
+            status.value=false
+            return
+        }
+        count--
+        content.value=`(${count})秒后，再次获取`
+    },1000)
+}
+const messageLogin = () =>{
+    router.push('/')
+}
 const login = async() =>{
     // const found = userList.value.find(item => item.userName===userName.value&&item.password===userPassword.value)
     // if(found){
@@ -77,6 +99,19 @@ const login = async() =>{
                 请扫描二维码登录（暂无二维码登录）
                 
             </div>
+            <div v-else-if="select==='短信登录'" class="bd">
+
+                <div class="number">
+                    <span>📱</span>
+                    <input type="text" placeholder="请输入手机号码" maxlength="11">
+                </div>
+                <div class="code">
+                    <span></span>
+                    <input type="text" maxlength="6" placeholder="请输入验证码">
+                    <button @click="send"  :disabled="status" :class="{sendActive:!status,sendDisabled:status}">{{content}}</button>
+                </div>
+                <button @click="messageLogin">登录</button>
+            </div>
            
         </div> 
         
@@ -86,6 +121,12 @@ const login = async() =>{
 <style scoped lang="scss">
 .active{
     border-bottom: 3px solid rgb(61, 166, 251);
+}
+.sendActive{
+    background-color: rgb(61, 166, 251) !important;
+}
+.sendDisabled{
+    background-color: #a3a3a3 !important;
 }
 .body{
     height: 100vh;
@@ -158,7 +199,9 @@ const login = async() =>{
     // gap: 30px;
     // align-items: center;
     .userName,
-    .userPassword{
+    .userPassword,
+    .number,
+    .code{
         display: flex;
         align-items: center;
         border-radius: 4px;
@@ -175,6 +218,11 @@ const login = async() =>{
 
                 // background-color: red;
 
+            }
+            button{
+                background-color: rgb(61, 166, 251);
+                width: 220px;
+                height: 50px;
             }
             input{
                 // border-radius: 4px;

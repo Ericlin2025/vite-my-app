@@ -11,7 +11,7 @@ console.log(url)
 // console.log(avatar.value)
 const loginOut = () =>{
     localStorage.removeItem('loginUserInfo')
-    alert('成功退出登录')
+    // alert('成功退出登录')
     router.push('/login')
     // location.href('/')
 }
