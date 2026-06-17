@@ -5,32 +5,37 @@
 import { useRouter } from 'vue-router'
 const router = useRouter()
 import { ref,onMounted } from 'vue';
-
+import { getLogin } from '@/api/backend';
 
 const userList = ref(JSON.parse(localStorage.getItem('userList')||'[]'))
 const select = ref('密码登录')
 const userName =ref('')
 const userPassword = ref('')
 const loginSelection = ['密码登录','扫码登录']
-const login = () =>{
-    const found = userList.value.find(item => item.userName===userName.value&&item.password===userPassword.value)
-    if(found){
-        alert('登录成功')
-        localStorage.setItem("loginUserInfo",JSON.stringify(found))
-        router.push('/')
+const login = async() =>{
+    // const found = userList.value.find(item => item.userName===userName.value&&item.password===userPassword.value)
+    // if(found){
+    //     alert('登录成功')
+    //     localStorage.setItem("loginUserInfo",JSON.stringify(found))
+    //     router.push('/')
 
-    }else{
-        alert('账号或者密码错误')
+    // }else{
+    //     alert('账号或者密码错误')
+    // }
+
+    //访问自己创建的后端服务器后端登录接口进行用户身份判断
+    try{
+        const res = await getLogin(userName.value,userPassword.value)
+        console.log(res)
+        alert(res.data.msg)
+        localStorage.setItem("loginUserInfo",JSON.stringify(res.data.data))
+        router.push('/')
+    }catch(error){
+        console.log(error.response)
+        alert(error.response.data.msg)
     }
 }
-// onMounted(()=>{
-//     const localStorageUsers = localStorage.getItem('userList')
-//     if(localStorageUsers){
-//         return
-//     }else{
-//         localStorage.setItem('userList',JSON.stringify(users))
-//     }
-// })
+
 </script>
 
 <template>

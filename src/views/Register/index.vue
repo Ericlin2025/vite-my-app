@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router'
 const router = useRouter()
 import { ref,watch } from 'vue';
-
+import { getRegister } from '@/api/backend';
 const userList = ref(JSON.parse(localStorage.getItem('userList')||'[]'))
 const userName = ref('')
 const userPassword = ref('')
@@ -12,36 +12,47 @@ const confirm = ref('')
 const ureg = /^[a-zA-Z0-9_]{3,10}$/
 const preg = /^[a-zA-Z0-9]{4,10}$/
 
-const register = () =>{
-    const found = userList.value.find(item=>item.userName===userName.value)
-    if(userName.value===''||userPassword.value===''||confirm.value===''){
-        alert('请输入完整信息')
+const register = async() =>{
+    // const found = userList.value.find(item=>item.userName===userName.value)
+    // if(userName.value===''||userPassword.value===''||confirm.value===''){
+    //     alert('请输入完整信息')
         
-    }
-     else if(ureg.test(userName.value)===false){
-        alert('输入的用户名不符合规范，请重新输入')
-    }
+    // }
+    //  else if(ureg.test(userName.value)===false){
+    //     alert('输入的用户名不符合规范，请重新输入')
+    // }
 
-    else if(preg.test(userPassword.value)===false){
-        alert('输入的密码不符合规范，请重新输入')
-    }
+    // else if(preg.test(userPassword.value)===false){
+    //     alert('输入的密码不符合规范，请重新输入')
+    // }
 
-    else if(userPassword.value!==confirm.value){
-        alert('两次密码输入不一致')
-    }
+    // else if(userPassword.value!==confirm.value){
+    //     alert('两次密码输入不一致')
+    // }
    
-    else if(found){
-        alert('该用户名已被注册，请更换用户名')
-    }
+    // else if(found){
+    //     alert('该用户名已被注册，请更换用户名')
+    // }
     
-    else{
-        alert('创建成功')
-        userList.value.push({
-            userName:userName.value,
-            password:userPassword.value,
-            isadmin:false
-        })
+    // else{
+    //     alert('创建成功')
+    //     userList.value.push({
+    //         userName:userName.value,
+    //         password:userPassword.value,
+    //         isadmin:false
+    //     })
+    //     router.push('/login')
+    // }
+
+    //使用自己定义的注册接口来判断是否注册成功
+    try{
+        const res = await getRegister(userName.value,userPassword.value,confirm.value)
+        console.log(res)
+        alert(res.data.msg)
         router.push('/login')
+    }catch(error){
+        console.log(error.response)
+        alert(error.response.data.msg)
     }
 }
 watch(userList,newValue=>{
