@@ -51,16 +51,18 @@ const loginOut = () =>{
         </div>
         <div v-else class="loginStatus">
             <p>
-            <img src="" alt="" v-if="loginUserInfo.avatar">
-            <div v-else class="none">暂无头像</div>
+            <!-- <img src="" alt="" v-if="loginUserInfo.avatar">
+            <div v-else class="none">暂无头像</div> -->
+            <img src="../assets/img/common/a2.png" alt="">
             <span>{{ loginUserInfo.userName }} </span>
             <!-- <span v-if="loginUserInfo.isadmin" class="admin">(管理者)</span>
             <span v-else class="other">(普通用户)</span> -->
             <span>⌵</span>
             </p>
            <div class="detail"> 
-            <img src="" alt="" v-if="loginUserInfo.avatar">
-            <div class="none" v-else>暂无头像</div>
+            <!-- <img src="" alt="" v-if="loginUserInfo.avatar">
+            <div class="none" v-else>暂无头像</div> -->
+            <img src="../assets/img/common/a2.png" alt="">
             <span class="name">用户名：{{ loginUserInfo.userName }}</span>
             
             <div>
