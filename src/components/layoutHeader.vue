@@ -41,7 +41,7 @@ const loginOut = () =>{
             </ul>
         </div>
         <div class="loginStatus" v-if="loginUserInfo===null">
-            <RouterLink to="/login">登录后使用，去登录</RouterLink>
+            <RouterLink to="/login">登录后使用，去登录→</RouterLink>
         </div>
         <div v-else class="loginStatus">
             <p>欢迎你， {{ loginUserInfo.userName }} 

@@ -74,7 +74,7 @@ const login = async() =>{
                 </div>
             </div>
             <div v-else-if="select==='扫码登录'" class="bd">
-                请扫描二维码登录
+                请扫描二维码登录（暂无二维码登录）
                 
             </div>
            
