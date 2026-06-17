@@ -59,9 +59,15 @@ const loginOut = () =>{
             </p>
            <div class="detail"> 
             <img src="" alt="" v-if="loginUserInfo.avatar">
-            <div class="none">暂无头像</div>
-            <span v-if="loginUserInfo.isadmin" class="admin">用户身份：管理者</span>
+            <div class="none" v-else>暂无头像</div>
+            <span class="name">用户名：{{ loginUserInfo.userName }}</span>
+            
+            <div>
+                <span class="name">用户等级:</span>
+                <span v-if="loginUserInfo.isadmin" class="admin">管理者</span>
             <span v-else class="other">普通用户</span>
+            </div>
+            
             <button @click="loginOut">退出登录</button>
            </div>
         </div>
@@ -145,6 +151,7 @@ const loginOut = () =>{
                 border-radius: 50%;
                 color: #000;
                 line-height: 35px;
+                text-align: center;
             }
             img{
                 width: 35px;
@@ -158,6 +165,9 @@ const loginOut = () =>{
         }
         a{
             color: yellow;
+        }
+        .name{
+            color: #000;
         }
         button{
             background-color: red;
