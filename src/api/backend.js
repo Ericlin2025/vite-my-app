@@ -2,7 +2,7 @@ import requestBackend from "@/uitls/http5";
 
 export const getLogin = (userName,userPassword)=>{
     return requestBackend({
-        url:'/login',
+        url:'api/login',
         data:{
             userName,
             userPassword,
@@ -11,7 +11,7 @@ export const getLogin = (userName,userPassword)=>{
 }
 export const getRegister = (userName,userPassword,confirm)=>{
     return requestBackend({
-        url:'/register',
+        url:'api/register',
         data:{
             userName,
             userPassword,

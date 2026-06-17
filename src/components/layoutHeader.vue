@@ -1,8 +1,14 @@
 <script setup>
-import { ref } from 'vue';
+import { ref ,computed} from 'vue';
 import { useRouter } from 'vue-router';
 const router= useRouter()
+const url = import.meta.env.VITE_API_BASE_URL
 const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'null'))
+console.log(url)
+// const avatar = computed(()=>{
+//     return url+loginUserInfo.value.avatar
+// })
+// console.log(avatar.value)
 const loginOut = () =>{
     localStorage.removeItem('loginUserInfo')
     alert('成功退出登录')
@@ -44,11 +50,20 @@ const loginOut = () =>{
             <RouterLink to="/login">登录后使用，去登录→</RouterLink>
         </div>
         <div v-else class="loginStatus">
-            <p>欢迎你， {{ loginUserInfo.userName }} 
+            <p>
+            <img src="" alt="" v-if="loginUserInfo.avatar">
+            <div v-else class="none">暂无头像</div>
+            <span>{{ loginUserInfo.userName }} </span>
             <span v-if="loginUserInfo.isadmin" class="admin">(管理者)</span>
             <span v-else class="other">(普通用户)</span>
             </p>
-           <button @click="loginOut">退出登录</button>
+           <div class="detail"> 
+            <img src="" alt="" v-if="loginUserInfo.avatar">
+            <div class="none">暂无头像</div>
+            <span v-if="loginUserInfo.isadmin" class="admin">用户身份：管理者</span>
+            <span v-else class="other">普通用户</span>
+            <button @click="loginOut">退出登录</button>
+           </div>
         </div>
     </div>
 </template>
@@ -113,10 +128,34 @@ const loginOut = () =>{
     }
     .loginStatus{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 10px;
-        color: rgb(0, 195, 255);
+        color: rgb(255, 255, 255);
+        p{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            .none{
+                background-color: rgb(199, 199, 199);
+                width: 35px;
+                height: 35px;
+                font-size: 8px;
+                border-radius: 50%;
+                color: #000;
+                line-height: 35px;
+            }
+            img{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+            }
+        }
+        &:hover .detail{
+            display: flex;
+            transform: translateY(10px);
+        }
         a{
             color: yellow;
         }
@@ -127,6 +166,9 @@ const loginOut = () =>{
             height: 30px;
             border: none;
             border-radius: 5px;
+            &:hover{
+                cursor: pointer;
+            }
         }
         .admin{
             color: rgb(66, 231, 66);
@@ -135,6 +177,45 @@ const loginOut = () =>{
         .other{
             color: #b3b3b3;
             font-size: 12px;
+        }
+        .detail{
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 8px;
+            background-color: white;
+            transition: all 1s;
+            width: 240px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 85%;
+            img{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+            .none{
+                background-color: rgb(199, 199, 199);
+                width: 60px;
+                height: 60px;
+                font-size: 15px;
+                border-radius: 50%;
+                color: #000;
+                line-height: 60px;
+                text-align: center;
+            }
+            .admin{
+                // color: #31ff65;
+                font-size: 15px;
+                // border-top: 1px solid black;
+            }
+            .other{
+                // color: #31ff65;
+                font-size: 15px;
+                // border-top: 1px solid black;
+            }
         }
     }
 }
