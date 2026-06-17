@@ -106,8 +106,8 @@ const login = async() =>{
                     <input type="text" placeholder="请输入手机号码" maxlength="11">
                 </div>
                 <div class="code">
-                    <span></span>
-                    <input type="text" maxlength="6" placeholder="请输入验证码">
+                    <span>💬</span>
+                    <input type="text" maxlength="6" placeholder="请输入6位验证码">
                     <button @click="send"  :disabled="status" :class="{sendActive:!status,sendDisabled:status}">{{content}}</button>
                 </div>
                 <button @click="messageLogin">登录</button>
