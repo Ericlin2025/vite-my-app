@@ -47,7 +47,7 @@ const loginOut = () =>{
             </ul>
         </div>
         <div class="loginStatus" v-if="loginUserInfo===null">
-            <RouterLink to="/login">登录后使用，去登录→</RouterLink>
+            <RouterLink to="/login">登录后免费使用工具，去登录→</RouterLink>
         </div>
         <div v-else class="loginStatus">
             <p>
@@ -63,12 +63,15 @@ const loginOut = () =>{
             <!-- <img src="" alt="" v-if="loginUserInfo.avatar">
             <div class="none" v-else>暂无头像</div> -->
             <img src="../assets/img/common/a2.png" alt="">
-            <span class="name">用户名：{{ loginUserInfo.userName }}</span>
-            
-            <div>
-                <span class="name">用户等级:</span>
-                <span v-if="loginUserInfo.isadmin" class="admin">管理者</span>
-            <span v-else class="other">普通用户</span>
+            <div class="info">
+                <span class="name">用户名：{{ loginUserInfo.userName }}</span>
+                <span class="name">用户手机号：{{ loginUserInfo.phone }}</span>
+                <div>
+                    <span class="name">用户等级:</span>
+                    <span v-if="loginUserInfo.isadmin" class="admin">管理者</span>
+                    <span v-else class="other">普通用户</span>
+                
+                </div>
             </div>
             
             <button @click="loginOut">退出登录</button>
@@ -208,6 +211,14 @@ const loginOut = () =>{
                 width: 60px;
                 height: 60px;
                 border-radius: 50%;
+            }
+            .info{
+                // border: 1px solid black;
+                width: 200px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                // margin: 0 auto;
             }
             .none{
                 background-color: rgb(199, 199, 199);

@@ -9,12 +9,22 @@ export const getLogin = (userName,userPassword)=>{
         }
     })
 }
-export const getRegister = (userName,userPassword,confirm)=>{
+export const getMessageLogin = (phone,code)=>{
+    return requestBackend({
+        url:'api/message',
+        data:{
+            phone,
+            code
+        }
+    })
+}
+export const getRegister = (userName,userPassword,phone,confirm)=>{
     return requestBackend({
         url:'api/register',
         data:{
             userName,
             userPassword,
+            phone,
             confirm,
         }
     })

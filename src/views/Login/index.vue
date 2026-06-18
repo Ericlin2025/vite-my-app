@@ -6,6 +6,9 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 import { ref,onMounted } from 'vue';
 import { getLogin } from '@/api/backend';
+import { getMessageLogin } from '@/api/backend';
+
+// import { number } from 'echarts';
 
 const userList = ref(JSON.parse(localStorage.getItem('userList')||'[]'))
 const select = ref('密码登录')
@@ -14,10 +17,19 @@ const userPassword = ref('')
 const loginSelection = ['密码登录','扫码登录','短信登录']
 const content = ref('获取验证码')
 const status = ref(false)
+const phone = ref('')
+const code = ref('')
 const send = () =>{
+    if(!phone.value){
+        alert('请先输入手机号再发送验证码')
+        return
+    }
     let timer
     let count = 15
-    
+    const codeNumber= Math.floor(Math.random()*900000)+100000
+    setTimeout(()=>{
+        alert(`你收到的验证码为：${codeNumber}`)
+    },3000)
     timer = setInterval(()=>{
         status.value=true
         if(count===1){
@@ -31,8 +43,22 @@ const send = () =>{
         content.value=`(${count})秒后，再次获取`
     },1000)
 }
-const messageLogin = () =>{
-    router.push('/')
+//手机号登录
+const messageLogin = async() =>{
+    try{
+        // if(!code.value){
+        //     alert('验证码不能为空')
+        //     return
+        // }
+        const res = await getMessageLogin(phone.value,code.value)
+        console.log(res)
+        alert(res.data.msg)
+        localStorage.setItem("loginUserInfo",JSON.stringify(res.data.data))
+        router.push('/')
+    }catch(error){
+        console.log(error.response)
+        alert(error.response.data.msg)
+    }
 }
 const login = async() =>{
     // const found = userList.value.find(item => item.userName===userName.value&&item.password===userPassword.value)
@@ -103,14 +129,17 @@ const login = async() =>{
 
                 <div class="number">
                     <span>📱</span>
-                    <input type="text" placeholder="请输入手机号码" maxlength="11">
+                    <input type="text" placeholder="请输入手机号码" maxlength="11" v-model="phone">
                 </div>
                 <div class="code">
                     <span>💬</span>
-                    <input type="text" maxlength="6" placeholder="请输入6位验证码">
+                    <input type="text" maxlength="6" placeholder="请输入6位验证码" v-model="code">
                     <button @click="send"  :disabled="status" :class="{sendActive:!status,sendDisabled:status}">{{content}}</button>
                 </div>
                 <button @click="messageLogin">登录</button>
+                <div class="ft">
+                    <RouterLink to="/register">手机号未注册？去注册→</RouterLink>
+                </div>
             </div>
            
         </div> 

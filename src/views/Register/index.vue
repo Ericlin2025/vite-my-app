@@ -7,7 +7,7 @@ const userList = ref(JSON.parse(localStorage.getItem('userList')||'[]'))
 const userName = ref('')
 const userPassword = ref('')
 const confirm = ref('')
-
+const phone = ref('')
 //正则表达式
 const ureg = /^[a-zA-Z0-9_]{3,10}$/
 const preg = /^[a-zA-Z0-9]{4,10}$/
@@ -46,7 +46,7 @@ const register = async() =>{
 
     //使用自己定义的注册接口来判断是否注册成功
     try{
-        const res = await getRegister(userName.value,userPassword.value,confirm.value)
+        const res = await getRegister(userName.value,userPassword.value,phone.value,confirm.value)
         console.log(res)
         alert(res.data.msg)
         router.push('/login')
@@ -74,6 +74,13 @@ watch(userList,newValue=>{
                     
                     </div>
                     <span class="ts">提示：用户名可以由:a-z，A-Z，0-9，特殊字符：_ 这些字符组成，长度为:3-10</span>
+                </div>
+                <div class="input">
+                    <div class="phone">
+                        <span>📱</span>
+                        <input type="text" placeholder="请输入你的手机号" maxlength="11" v-model="phone">
+                    </div>
+                    <span class="ts">提示：请输入正确的11位手机号</span>
                 </div>
                 <div class="input">
                     <div class="userPassword">
@@ -121,7 +128,7 @@ watch(userList,newValue=>{
         .bd{
             margin-top: 10px;
             width: 420px;
-            height: 320px;
+            height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -140,7 +147,8 @@ watch(userList,newValue=>{
             }
             .userName,
             .userPassword,
-            .confirm{
+            .confirm,
+            .phone{
                 display: flex;
                 align-items: center;
                 
