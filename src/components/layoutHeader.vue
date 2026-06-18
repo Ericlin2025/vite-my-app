@@ -22,7 +22,7 @@ const loginOut = () =>{
     <div class="hd">
         <div class="lt">
             <RouterLink to="/">
-                <h1>🧩 我的功能中心</h1>
+                <h1><svg t="1781764162324" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="26316" width="35" height="35"><path d="M430.848 134.72h-332.8v332.8h332.8v-332.8z m-44.8 44.8v243.2h-243.2v-243.2h243.2zM965.504 301.12l-235.328-235.328-235.328 235.328 235.328 235.328 235.328-235.328z m-63.36 0l-172.032 171.968-171.968-171.968 171.968-171.968 171.968 171.968zM430.848 590.976h-332.8v332.8h332.8v-332.8z m-44.8 44.736v243.2h-243.2v-243.2h243.2zM896.576 590.976h-332.8v332.8h332.8v-332.8z m-44.864 44.736v243.2h-243.2v-243.2h243.2z" fill="white" p-id="26317"></path></svg>我的功能中心</h1>
                 <p>选择工具，提升效率</p>
             </RouterLink>
         </div>
@@ -152,6 +152,9 @@ const loginOut = () =>{
         justify-content: center;
         h1{
             color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         p{
             color: white;
