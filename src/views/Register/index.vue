@@ -202,6 +202,7 @@ watch(userList,newValue=>{
                 font-size: 14px;
                 &:hover{
                     cursor: pointer;
+                    background-color: rgb(0, 140, 255);
                 }
 
             }

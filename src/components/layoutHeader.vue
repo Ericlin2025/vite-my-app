@@ -240,6 +240,7 @@ const loginOut = () =>{
             align-items: center;
             &:hover{
                 cursor: pointer;
+                background-color: rgb(0, 184, 129);
             }
             img{
                 width: 14px !important;

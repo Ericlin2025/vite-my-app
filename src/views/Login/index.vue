@@ -180,6 +180,9 @@ const login = async() =>{
             border-radius: 8px;
             background-color:rgb(61, 166, 251);
             color: white;
+            &:hover{
+                background-color: rgb(0, 140, 255);
+            }
         }
 
     }
@@ -258,6 +261,8 @@ const login = async() =>{
                 background-color: rgb(61, 166, 251);
                 width: 220px;
                 height: 50px;
+                
+            
             }
             input{
                 // border-radius: 4px;
@@ -279,6 +284,7 @@ const login = async() =>{
         font-size: 14px;
         &:hover{
             cursor: pointer;
+            background-color: rgb(0, 140, 255);
         }
 
     }
