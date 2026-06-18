@@ -162,8 +162,13 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    padding:10px;
+    &:hover{
+    background-color: rgb(168, 168, 168);
+    border-radius: 8px;
   }
+  }
+  
 }
 
 .feature-card:hover {
