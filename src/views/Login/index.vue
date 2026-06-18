@@ -20,12 +20,17 @@ const status = ref(false)
 const phone = ref('')
 const code = ref('')
 const eyes = ref(false)
+const phonereg = /^1[3-9][0-9]{9}$/
 const change = () =>{
     eyes.value=!eyes.value
 }
 const send = () =>{
     if(!phone.value){
         alert('请先输入手机号再发送验证码')
+        return
+    }
+    if(phonereg.test(phone.value)===false){
+        alert('错误的手机号，请输入正确的手机号再发送')
         return
     }
     let timer
