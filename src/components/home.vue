@@ -147,6 +147,9 @@ const loginUserInfo = ref(JSON.parse(localStorage.getItem('loginUserInfo')||'nul
         position: absolute;
         top: 60%;
         left: 21%;
+        &:hover{
+          background-color: rgb(0, 160, 209);
+        }
     }
 .el-carousel__item h2 {
   color: #006eff;
