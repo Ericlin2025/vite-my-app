@@ -228,6 +228,7 @@ const login = async() =>{
             line-height: 45px;
             &:hover{
                 cursor: pointer;
+                border-bottom: 3px solid rgb(61, 166, 251);
             }
         }
     }
